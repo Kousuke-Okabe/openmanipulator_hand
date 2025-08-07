@@ -20,8 +20,16 @@ target_link_libraries(hand_control_node PUBLIC
   rclcpp::rclcpp
 )
 
+add_executable(hand_control_test_publisher src/hand_control_test_publisher.cpp)
+target_link_libraries(hand_control_test_publisher PUBLIC
+  dynamixel_sdk::dynamixel_sdk
+  ${hand_control_interfaces_TARGETS}
+  rclcpp::rclcpp
+)
+
 install(TARGETS
   hand_control_node
+  hand_control_test_publisher
   DESTINATION lib/${PROJECT_NAME}
 )
 
