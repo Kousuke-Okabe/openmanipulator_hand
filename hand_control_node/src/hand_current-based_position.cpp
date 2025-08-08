@@ -49,9 +49,9 @@ HandControlNode::HandControlNode() : Node("hand_control_node"){
       uint8_t dxl_error = 0;
 
         if(msg->state == 'O') // O: Hand open, C: Hand close
-            goal_position = 2000;
-        else if(msg->state == 'C')
             goal_position = 400;
+        else if(msg->state == 'C')
+            goal_position = 2000;
 
       // Write Goal Position (length : 4 bytes)
       // When writing 2 byte data to AX / MX(1.0), use write2ByteTxRx() instead.
